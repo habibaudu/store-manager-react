@@ -1,11 +1,11 @@
 import React from 'react';
 import Footer from './footer';
-import Contain from './contain';
+import Main from './main';
 
 const home = () => {
    return (
    <>
-   <Contain />     
+   <Main />     
    <Footer />
    </>
    );
