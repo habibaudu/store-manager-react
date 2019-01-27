@@ -26,9 +26,20 @@ const  loginReducer = (state = {
   }
 }
 
+const productReducer = (state = {}, action) => {
+  switch (action.type) {
+    case 'LOAD_PRODUCTS':
+     
+      return { products: action.payload };
+    default:
+      return state;
+  }
+}
 
 export default combineReducers({
-  loginReducer
+  loginReducer,
+  productReducer
   
 });
+
 
