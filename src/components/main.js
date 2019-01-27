@@ -3,7 +3,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import img from '../img/jor2.jpg';
 
-const Contain = () => {
+const Main = () => {
    return (
    <>
         <div className ="container">
@@ -37,4 +37,4 @@ const Contain = () => {
    );
 };
 
-export default Contain;
+export default Main;

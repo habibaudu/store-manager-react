@@ -1,14 +1,14 @@
 import React from 'react';
 import Footer from './footer';
-import Contain from './contain';
+import Main from './main';
 
-const home = () => {
+const Home = () => {
    return (
    <>
-   <Contain />     
+   <Main />     
    <Footer />
    </>
    );
 };
 
-export default home;
+export default Home;

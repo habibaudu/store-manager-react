@@ -1,6 +1,7 @@
 import React from 'react';
 import {BrowserRouter , Route, Link ,HashRouter } from 'react-router-dom';
-import home from './home';
+import Home from './home';
+import Login from './login';
 import  '../styles/index.css';
 
 
@@ -10,7 +11,9 @@ const App  = () =>{
             <div>
                 <HashRouter>
                 <div>
-                    <Route  exact path="/" component = {home}/>
+                    <Route  exact path="/" component = {Home}/>
+                    <Route  exact path="/login" component = {Login}/>
+
                 </div>
                 </HashRouter>
             
