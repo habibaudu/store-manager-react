@@ -7,6 +7,12 @@ const productReducer = (state = {}, action) => {
       return { ...state,
               payload };
       }
+      case types.GET_A_PRODUCT:{
+        const { product } = action
+        return { ...state,
+                product };
+        }
+        
     default:
       return state;
   }

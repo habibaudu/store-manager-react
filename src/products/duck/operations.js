@@ -4,7 +4,7 @@ import actions from './actions';
 import constants from './constants';
 
 const API_URL = process.env.API_URL;
-const {  setAllProducts } = actions;
+const {  setAllProducts, getAProducts } = actions;
 const url = `${API_URL}products`;
 
 const fetchAllProducts = () => dispatch => {
@@ -32,10 +32,34 @@ const fetchAllProducts = () => dispatch => {
       dispatch(setAllProducts(products))
     })
     .catch(({ response }) => {
-      toast.error(response.error, {
+      toast.error(response, {
         hideProgressBar: true,
       });
     });
 };
 
-export default fetchAllProducts;
+const searchProduct = (productname) => dispatch => {
+  const token = localStorage.getItem('token');
+  const defaultOptions = {
+    headers: {
+      'x-access-token': token,
+    },
+  };
+  const url2 = `${API_URL}/product/${productname}`;
+  return axios
+    .get(url2,defaultOptions)
+    .then((data) => {
+       dispatch(getAProducts(data))
+    })
+    .catch(({ response }) => {
+      toast.error(response, {
+        hideProgressBar: true,
+      });
+    });
+
+
+};
+
+
+
+export {searchProduct, fetchAllProducts};

@@ -3,13 +3,30 @@ import SlideShowComponent from './SlideShowComponent';
 import img2 from  '../img/walltims.jpeg';
 
 class ProductComponent extends React.Component {
-  constructor(props){
-    super(props);
-  }
+
    componentDidMount(){
      this.props.fetchAllProducts();
     }
+ 
+    handleSearch = event =>{
+      const { searchProduct } = this.props;
+      const product = event.target.elements.search.value.trim();
+      event.preventDefault();
+      searchProduct(product)
+  }
+
+  extract = img => {
+    const getsrc = img
+      const getalt = img
+      const regex2 = /<img.*?alt='(.*?)'/;
+      const regex = /<img.*?src='(.*?)'/;
+      const altvalue= regex2.exec(getalt)[1]
+      const srcvalue = regex.exec(getsrc)[1];
+      return <img src={srcvalue} alt ={altvalue} />;
+  }
+
     render(){
+      let img ='';
    return (
     
    <div>
@@ -19,15 +36,35 @@ class ProductComponent extends React.Component {
 </div> 
 <section id="title"> 
  Search for Product
- <form id='search' className='byid'>
+ <form id='search' className='byid' onSubmit={this.handleSearch}>
     <input type="text" placeholder="Search product by name.." name="search" id ='filter2' />
     <button type="submit">search </button>
   </form>  
 </section>
      
-    <div id ="aproduct" className="article2 clearfix">
-         
+    {this.props.product ? (
+      
+      <div id ="aproduct" className="article2 clearfix">
+                              
+                             <section>
+                             {this.extract(this.props.product.data.imgs)}
+                             </section>
+                             <section>
+                             <span className ='note'> Details</span>
+                              <hr />
+                              <span className='note2'>productId : {this.props.product.data.id}</span><br />
+                             <span className='note2'>product Name : {this.props.product.data.productname}</span><br />
+                             <span className='note'>Price : #{this.props.product.data.price}</span><br />
+                             <span className='note2'>Quantity : {this.props.product.data.quantity} in stock</span><br />
+                              <span className='note2'>Minimum  : {this.props.product.data.minimum} Allowed in stock</span><br />
+                              <span className='note2'>Date Added : {this.props.product.data.created_date} </span><br />
+                              <hr /><br />
+                              <span className='note'>Description : {this.props.product.data.description} </span><br />
+                             </section>
+                              
+                             
     </div>
+    ):' '}
 <section id="title">
    <a href ='#'> products </a> 
    </section>

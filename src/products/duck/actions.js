@@ -6,5 +6,12 @@ const setAllProducts = (products) => ({
     payload: products
   
 });
+const getAProducts = (product) => ({
+  type:types.GET_A_PRODUCT,
+  product
 
-export default { setAllProducts };
+});
+
+
+
+export default { setAllProducts, getAProducts };
