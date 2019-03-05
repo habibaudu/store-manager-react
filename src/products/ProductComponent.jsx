@@ -99,7 +99,7 @@ class ProductComponent extends React.Component {
     
      
 </div>
-{/* <p className ='note2'>page 1 of 4     <a href="#" className='btn2'>next</a></p> */}
+
    </div>);
 }
 };
