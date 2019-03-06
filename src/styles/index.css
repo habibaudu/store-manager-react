@@ -22,16 +22,29 @@ nav{
   background-color: #062f4f;
   margin-bottom: 1em;
   text-align: center;
+  margin-left:  6px;  
   display: inline-block;
   color:#e4c580;
-  padding: 8px 40px;
+  padding: 3px 5px;
   font-family: Sabo;
-  border-radius: 7px;
+  border-radius: 4px;
   box-shadow: 1px  1px 3px #000;
-
-  letter-spacing: 4px;
+  letter-spacing: 0.3px;
   font-weight: bold;
-  font-size:100%;  
+}
+
+.bt2 {
+  background-color: #062f4f;
+  margin-bottom: 1em;
+  text-align: center;
+  display: inline-block;
+  color:#e4c580;
+  padding: 3px 5px;
+  font-family: Sabo;
+  border-radius: 4px;
+  box-shadow: 1px  1px 3px #000;
+  margin-left:  6px;
+  letter-spacing: 0.3px;  
   
 }
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 import SlideShowComponent from './SlideShowComponent';
 import img2 from  '../img/walltims.jpeg';
 
@@ -66,7 +67,7 @@ class ProductComponent extends React.Component {
     </div>
     ):' '}
 <section id="title">
-   <a href ='#'> products </a> 
+    <Link to='/cart'>view cart</Link>
    </section>
 
 <div id ="allproduct" className="article clearfix">
@@ -93,7 +94,7 @@ class ProductComponent extends React.Component {
                        this.props.addToCart(product)
                        
                      }} className='bt'>Add to Cart ({( this.props.cart.length && this.props.cart.filter(cartItem => cartItem.id === product.id).length && this.props.cart.filter(cartItem => cartItem.id === product.id)[0].quantityInCart) ||0 })</button>
-                     {this.props.cart.length ?
+                     {this.props.cart.filter(cartItem => cartItem.id === product.id)[0]?
                      <button onClick ={() => {
                        this.props.removeFromCart(this.props.cart.filter(cartItem => cartItem.id === product.id)[0])
                        
