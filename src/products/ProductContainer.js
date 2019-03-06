@@ -6,7 +6,8 @@ import ProductComponent  from './ProductComponent';
 const mapStateToProps = (state) => {
   return {
           payload :state.productReducer.payload,
-          product: state.productReducer.product
+          product: state.productReducer.product,
+          cart : state.cartReducer,
         }
 };
 
@@ -16,6 +17,12 @@ const mapDispatchToProps = dispatch => {
       dispatch(fetchAllProducts()),
     searchProduct: (product) =>
       dispatch(searchProduct(product)),
+    addToCart: (item) =>{
+       dispatch({type: 'ADD_TO_CART', payload:item })
+     },
+     removeFromCart:(item) => {
+       dispatch({ type: 'REMOVE_FROM_CART',payload: item })
+     }
   };
 };
 const ProductContainer = connect(

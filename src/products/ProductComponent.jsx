@@ -26,9 +26,9 @@ class ProductComponent extends React.Component {
   }
 
     render(){
-      let img ='';
+      //
+      
    return (
-    
    <div>
      <SlideShowComponent />
 <div className ='mobile_header'>
@@ -79,7 +79,8 @@ class ProductComponent extends React.Component {
                 const regex2 = /<img.*?alt='(.*?)'/;
                 const regex = /<img.*?src='(.*?)'/;
                 const altvalue= regex2.exec(getalt)[1]
-                const srcvalue = regex.exec(getsrc)[1];               
+                const srcvalue = regex.exec(getsrc)[1]; 
+                      
                 return (
                   <div key={productname}>
                   <section>
@@ -88,7 +89,15 @@ class ProductComponent extends React.Component {
                      <span className='note2'>{productname}</span><br/>
                      <span className='note'>#{price}</span><br/>
                      <span className='note2'>{quantity} in stock</span><br/>
-                     <a href='addcart.html' className='btn2'>Add to Cart</a>
+                     <button onClick ={() => {
+                       this.props.addToCart(product)
+                       
+                     }} className='bt'>Add to Cart ({( this.props.cart.length && this.props.cart.filter(cartItem => cartItem.id === product.id).length && this.props.cart.filter(cartItem => cartItem.id === product.id)[0].quantityInCart) ||0 })</button>
+                     {this.props.cart.length ?
+                     <button onClick ={() => {
+                       this.props.removeFromCart(this.props.cart.filter(cartItem => cartItem.id === product.id)[0])
+                       
+                     }} className='bt'>Remove</button> : null}
                     </section>
                   </div>
                 );
