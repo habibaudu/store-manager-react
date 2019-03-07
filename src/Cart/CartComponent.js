@@ -1,6 +1,9 @@
 import React, { Fragment } from 'react';
 import { Redirect, Link } from 'react-router-dom';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import {createSalesRecord}  from './operations';
+import types from './types';
+import constants from './constants';
 
 const CartComponent = (props) => {
   const extract = img => {
@@ -16,6 +19,16 @@ const CartComponent = (props) => {
   const sort = items => {
     return items.sort((a,b) => a.id < b.id)
   }
+  let total = 0;
+  let sales = {};
+  sales.salesOrders=[]
+  
+  const makeSales = (e) => {
+    e.preventDefault();
+      const {salesRecord} = props;
+        salesRecord(sales)
+            
+             }
   return (
     <Fragment>
     <div>
@@ -35,15 +48,16 @@ const CartComponent = (props) => {
                                      <div className='line3'></div>
                                  </div>
          </nav>
- 
          <div className ="formbox">
                
                <div className='log_head'><h1>Your Cart</h1></div>
           <div id="cartproduct" className="article">
-          {props.cart? (
-              sort(props.cart).map(item => {
+          {props.cart.data? (
+              sort(props.cart.data).map((item) => {
+                 total += item.price * item.quantityInCart;
+                 sales.salesOrders.push({product_id:item.id,quantity:item.quantityInCart})
                 return (
-                            <div>
+                            <div  key={item.productname}>
                             <div className='show'>{extract(item.item)}</div>
                             <div className='discrip'>
                             <span className='note'>{item.productname}</span><br />
@@ -60,10 +74,15 @@ const CartComponent = (props) => {
             ) : (
               <h3>loading cart please wait...</h3>
             )}
-    
+              <span className='note'>Total :{ total }</span><br />
+            {props.cart.salesState === constants.MAKING_SALES && (
+                   'please wait ...'
+                  )}
+           { props.cart.salesState === constants.SALES_SUCESS && <div>Sales Record Created. <Redirect to="/products" /> </div> }
+          <form id='cart'  onSubmit = {makeSales}>
+          <input type="submit"  value="submit" /><br /><br /><br /><br />
+          </form> 
           </div>
-          
-               
                <div className='form_footer clearfix'>
                <p></p>
                </div> 
@@ -77,6 +96,8 @@ const CartComponent = (props) => {
  const mapStateToProps = (state) => {
    return {
     cart: state.cartReducer,
+    salesState: state.cartReducer.salesState,
+    salesError: state.cartReducer.salesError,
    }
  }
 
@@ -87,7 +108,10 @@ const CartComponent = (props) => {
    },
    removeFromCart: (item) => {
      dispatch({type:'REMOVE_FROM_CART',payload:item})
-   }
+   },
+   salesRecord: (salesOrder) => {
+    dispatch(createSalesRecord(salesOrder))
+   },
   }
 }
 

@@ -93,10 +93,10 @@ class ProductComponent extends React.Component {
                      <button onClick ={() => {
                        this.props.addToCart(product)
                        
-                     }} className='bt'>Add to Cart ({( this.props.cart.length && this.props.cart.filter(cartItem => cartItem.id === product.id).length && this.props.cart.filter(cartItem => cartItem.id === product.id)[0].quantityInCart) ||0 })</button>
-                     {this.props.cart.filter(cartItem => cartItem.id === product.id)[0]?
+                     }} className='bt'>Add to Cart ({( this.props.cart.data && this.props.cart.data.filter(cartItem => cartItem.id === product.id).length && this.props.cart.data.filter(cartItem => cartItem.id === product.id)[0].quantityInCart) ||0 })</button>
+                     {this.props.cart.data.filter(cartItem => cartItem.id === product.id)[0]?
                      <button onClick ={() => {
-                       this.props.removeFromCart(this.props.cart.filter(cartItem => cartItem.id === product.id)[0])
+                       this.props.removeFromCart(this.props.cart.data.filter(cartItem => cartItem.id === product.id)[0])
                        
                      }} className='bt'>Remove</button> : null}
                     </section>

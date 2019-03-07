@@ -1,4 +1,4 @@
-
+import types from './types'
 const cartWithOutItem = (cart, item) => cart.filter(cartItem => cartItem.id !== item.id)
 
 const itemInCart = (cart, item) => cart.filter(cartItem => cartItem.id === item.id)[0]
@@ -17,13 +17,33 @@ const removeFromCart =(cart, item) =>{
 
 }
 
-const cartReducer = (state=[], action) => {
+const cartReducer = (state={ data: []}, action) => {
   switch(action.type){
     case 'ADD_TO_CART':
-       return  addToCart(state, action.payload)
+       return {
+         ...state,
+         data: addToCart(state.data, action.payload)
+       }
 
     case 'REMOVE_FROM_CART':
-    return removeFromCart(state, action.payload)
+    return {
+      ...state,
+      data: removeFromCart(state.data, action.payload)
+     }
+    case types.MAKE_SALES: {
+      const { salesState } = action;
+      return {
+        ...state,
+        salesState,
+      };
+    }
+    case types.MAKE_SALES_ERROR: {
+      const { salesError } = action;
+      return {
+        ...state,
+        salesError,
+      };
+    }
 
     default:
       return state;
