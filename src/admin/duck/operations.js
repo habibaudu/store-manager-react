@@ -4,8 +4,9 @@ import actions from './actions';
 import constants from './constants'
 
 const API_URL = process.env.API_URL;
-const {  setAllProducts, addProducts,addProductStatus,addProductError } = actions;
+const {  setAllProducts, addProducts,addProductStatus,addProductError,setDeleteProduct } = actions;
 const url = `${API_URL}products`;
+
 
 const fetchAllProducts = () => dispatch => {
   const token = localStorage.getItem('token');
@@ -60,6 +61,28 @@ export const addProduct = (productname, price,minimum,quantity,images,descriptio
         hideProgressBar: true,
       });
       dispatch(addProductError(constants.ADD_ERROR))
+    });
+};
+
+export const deleteProduct = (id) => dispatch => {
+  const deleteUrl = `${API_URL}products/${id}`;
+  const token = localStorage.getItem('token');
+  const defaultOptions = {
+    headers: {
+      'x-access-token': token,
+    },
+  };
+
+  return axios
+    .delete(deleteUrl,defaultOptions)
+    .then(({ data }) => {
+      dispatch(setDeleteProduct(data))
+    })
+    .catch(({ response }) => {
+      toast.error(response, {
+        hideProgressBar: true,
+      });
+
     });
 };
 

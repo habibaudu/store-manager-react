@@ -63,7 +63,6 @@ class AdminComponent extends React.Component {
                     <th>Price</th>
                     <th>Minimum Allowed</th>
                     <th>Description</th>
-                    <th>Created At</th>
                     <th>Modified At</th>
                     <th>Delete</th>
                   </tr>
@@ -71,7 +70,7 @@ class AdminComponent extends React.Component {
                   <tbody id='allproducts'> 
                     {
               this.props.payload.map( product => {
-                const {id, productname, price,minimum,quantity,description,modified_date,created_date} = product;  
+                const {id, productname, price,minimum,quantity,description,modified_date} = product;  
                 return (
                     <tr key={id}>
                             <td>{id}</td>
@@ -80,9 +79,8 @@ class AdminComponent extends React.Component {
                             <td>{price}</td>
                             <td>{minimum}</td>
                             <td>{description}</td>
-                            <td>{created_date}</td>
                             <td>{modified_date}</td>
-                            <td><button>delete</button></td>
+                            <td><button className="bt3" onClick={() => this.props.deleteProduct(id)}>delete</button></td>
 
                           </tr>
                 );

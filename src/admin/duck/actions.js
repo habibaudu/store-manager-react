@@ -24,6 +24,13 @@ const addProductError = (errormessage) => ({
   
 });
 
+const setDeleteProduct = (deleteProduct) => ({
+    type:types.DELETE_PRODUCT,
+    deleteProduct
+  
+});
 
 
-export default { setAllProducts,addProducts,addProductStatus, addProductError};
+
+
+export default { setAllProducts,addProducts,addProductStatus, addProductError,setDeleteProduct};
