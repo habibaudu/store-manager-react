@@ -119,11 +119,12 @@ class addProductComponent extends React.Component {
                 <input type="submit"  value="submit" /><br />
 
               </form>
-        </div>
-        {status === constants.ADDING_PRODUCT &&  (
+              {status === constants.ADDING_PRODUCT &&  (
                    'please wait ...'
                   )}
            { status === constants.PRODUCT_SUCESSFULLY_ADDED && <div>products Added successfully. <Redirect to="/admin" /> </div> }
+        </div>
+        
  
     </div>
     </Fragment>
