@@ -4,6 +4,7 @@ import Home from './home';
 import {Login} from '../login';
 import {Product} from '../products';
 import {Cart} from '../Cart'
+import {Record} from '../yourRecords'
 import  '../styles/index.css';
 
 
@@ -15,6 +16,7 @@ const App = () => (
           <Route path="/login" component={Login} exact />
           <Route path="/products" component={Product} exact />
           <Route path="/cart" component={Cart} exact />
+          <Route path="/records" component={Record} exact />
         </Switch>
       </Fragment>
     </Router>
