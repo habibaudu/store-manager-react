@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import { Redirect, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import EllipsisLoaderComponent from '../loaders';
 import { addProduct } from './duck';
 import { constants } from './duck';
 
