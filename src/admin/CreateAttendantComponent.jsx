@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react';
 import { Redirect, Link } from 'react-router-dom';
 import { constants } from './duck';
+import { createAttendant } from './duck';
+import { connect } from 'react-redux';
 
 const CreateAttendantComponent = ({
   signupUser,
@@ -12,7 +14,8 @@ const CreateAttendantComponent = ({
     const email = e.target.elements.email.value.trim();
     const username = e.target.elements.username.value.trim();
     const password = e.target.elements.password.value.trim();
-    const password2 = e.target.elements.rePassword.value.trim();
+    const password2 = e.target.elements.password2.value.trim();
+    const Role = e.target.elements.role.value.trim();
     if (password !== password2) {
       alert('passwords do not match');
       return;
@@ -20,9 +23,9 @@ const CreateAttendantComponent = ({
     signupUser(email, password, username, Role);
   };
 
-  if (signupState === constants.SIGNUP_SUCCESS) {
-    return <Redirect to="/admin" />;
-  }
+  // if (signupState === constants.SIGNUP_SUCCESS) {
+  //   return <Redirect to="/admin" />;
+  // }
 
   return (
     <div>
@@ -45,11 +48,17 @@ const CreateAttendantComponent = ({
         </nav>
 
         <div className="formbox">
+          {signupState === constants.SIGNING_UP &&
+            'Creating Attendant please wait....'}
+          {signupState === constants.SIGNUP_SUCCESS &&
+            'Attendant created sucessfully'}
+          {errorMessage === constants.SIGNUP_ERROR &&
+            'An error occured while creating attendant'}
           <div className="log_head">
             <h1>Create User</h1>
           </div>
 
-          <form>
+          <form onSubmit={onFormSubmit}>
             <p>User name</p>
             <input
               type="text"
@@ -74,13 +83,13 @@ const CreateAttendantComponent = ({
             <p>confirm password</p>
             <input
               type="password"
-              name="password"
+              name="password2"
               placeholder="confirm password"
               id="password2"
             />
             <p>Role</p>
             <br />
-            <select name="" id="Role">
+            <select name="role" id="Role">
               <option value="ADMIN">ADMIN</option>
               <option value="USER">USER</option>
             </select>
@@ -88,7 +97,7 @@ const CreateAttendantComponent = ({
 
             <input type="submit" name="" value="submit" />
           </form>
-          <div class="form_footer">
+          <div className="form_footer">
             <p>Store Manager copyright &copy 2018 </p>
           </div>
         </div>
@@ -97,4 +106,22 @@ const CreateAttendantComponent = ({
   );
 };
 
-export default CreateAttendantComponent;
+const mapStateToProps = state => {
+  return {
+    signupState: state.adminReducer.signupState,
+    errormessage: state.adminReducer.errormessage,
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    signupUser: (email, password, username, Role) =>
+      dispatch(createAttendant(email, password, username, Role)),
+  };
+};
+const CreateAttendantContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(CreateAttendantComponent);
+
+export { CreateAttendantContainer };
