@@ -5,6 +5,10 @@ class AdminComponent extends React.Component {
   componentDidMount() {
     this.props.fetchAllProducts();
   }
+  signUserOut = () => {
+    localStorage.removeItem('token');
+    return <Redirect to="/" />;
+  };
 
   render() {
     return (
@@ -26,6 +30,16 @@ class AdminComponent extends React.Component {
             </li>
             <li>
               <img src={img2} alt="adminlogo" id="adminlogo" />
+            </li>
+            <li>
+              <Link
+                to="/"
+                onClick={() => {
+                  signUserOut();
+                }}
+              >
+                Logout
+              </Link>
             </li>
           </ul>
           <div className="burger">

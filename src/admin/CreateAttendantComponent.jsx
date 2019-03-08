@@ -23,9 +23,10 @@ const CreateAttendantComponent = ({
     signupUser(email, password, username, Role);
   };
 
-  // if (signupState === constants.SIGNUP_SUCCESS) {
-  //   return <Redirect to="/admin" />;
-  // }
+  signUserOut = () => {
+    localStorage.removeItem('token');
+    return <Redirect to="/" />;
+  };
 
   return (
     <div>
@@ -38,6 +39,16 @@ const CreateAttendantComponent = ({
             <li>
               {' '}
               <Link to="/admin">Admin</Link>
+            </li>
+            <li>
+              <Link
+                to="/"
+                onClick={() => {
+                  signUserOut();
+                }}
+              >
+                Logout
+              </Link>
             </li>
           </ul>
           <div className="burger">
