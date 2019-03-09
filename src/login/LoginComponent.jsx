@@ -1,10 +1,9 @@
 import React, { Fragment } from 'react';
 import { Redirect, Link } from 'react-router-dom';
-import EllipsisLoaderComponent from '../loaders';
-import { PreloaderComponent } from '../loaders';
 import { constants } from './duck';
+import jwtDecode from 'jwt-decode';
 
-export const LoginComponent = ({ loginUser, loginState, loginData }) => {
+export const LoginComponent = ({ loginUser, loginState }) => {
   const onFormSubmit = e => {
     e.preventDefault();
     const email = e.target.elements.email.value.trim();
@@ -12,6 +11,9 @@ export const LoginComponent = ({ loginUser, loginState, loginData }) => {
     loginUser(email, password);
   };
 
+  const token = localStorage.getItem('token');
+  const role = jwtDecode(token).userRole;
+  const page = role === 'ADMIN' ? `/admin` : `/products`;
   return (
     <Fragment>
       <div>
@@ -37,6 +39,12 @@ export const LoginComponent = ({ loginUser, loginState, loginData }) => {
         </nav>
 
         <div className="formbox">
+          {loginState === constants.LOGGING_IN && 'please wait ...'}
+          {loginState === constants.LOGIN_SUCCESS && (
+            <div>
+              Login was Successful. <Redirect to={page} />{' '}
+            </div>
+          )}
           <div className="log_head">
             <h1>Login Here</h1>
           </div>
@@ -57,15 +65,6 @@ export const LoginComponent = ({ loginUser, loginState, loginData }) => {
               id="password"
             />
             <input type="submit" name="" value="submit" />
-
-            <a href="#">Lost your passowrd? </a>
-
-            {loginState === constants.LOGGING_IN && 'please wait ...'}
-            {loginState === constants.LOGIN_SUCCESS && (
-              <div>
-                Login was Successful. <Redirect to="/admin" />{' '}
-              </div>
-            )}
           </form>
           <div className="form_footer">
             <p>Store Manager copyright &copy 2018 </p>
