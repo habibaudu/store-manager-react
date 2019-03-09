@@ -51,7 +51,7 @@ export const LoginComponent = ({ loginUser, loginState, loginData }) => {
                   {loginState === constants.LOGGING_IN && (
                    'please wait ...'
                   )}
-           { loginState === constants.LOGIN_SUCCESS&& <div>Login was Successful. <Redirect to="/products" /> </div> }
+           { loginState === constants.LOGIN_SUCCESS&& <div>Login was Successful. <Redirect to="/admin" /> </div> }
 
        
                </form>

@@ -5,6 +5,8 @@ import {Login} from '../login';
 import {Product} from '../products';
 import {Cart} from '../Cart'
 import {Record} from '../yourRecords'
+import {Admin} from '../admin';
+import {AddProduct} from '../admin'
 import  '../styles/index.css';
 
 
@@ -17,6 +19,8 @@ const App = () => (
           <Route path="/products" component={Product} exact />
           <Route path="/cart" component={Cart} exact />
           <Route path="/records" component={Record} exact />
+          <Route path="/admin" component={Admin} exact />
+          <Route path="/addproduct" component={AddProduct} exact />
         </Switch>
       </Fragment>
     </Router>
