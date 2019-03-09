@@ -47,10 +47,6 @@
   },
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.2.3",
-    "@fortawesome/fontawesome-free-solid": "^5.0.13",
-    "@fortawesome/fontawesome-svg-core": "^1.2.15",
-    "@fortawesome/free-solid-svg-icons": "^5.7.2",
-    "@fortawesome/react-fontawesome": "^0.1.4",
     "axios": "^0.18.0",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",

@@ -1871,7 +1871,7 @@ object-assign
       (e.exports.InvalidTokenError = o);
   },
   function(e, t, n) {
-    e.exports = n.p + 'fd187d696dcfc0e08861a33e199f28f7.jpeg';
+    e.exports = n.p + '1308b53d72a95356ac090ae63ea39470.jpeg';
   },
   function(e, t, n) {
     e.exports = n.p + 'dfa8b06a77bc068d02d0e8078b7c4ea1.jpeg';
@@ -13558,7 +13558,7 @@ object-assign
                           o.a.createElement(
                             'span',
                             { className: 'note2' },
-                            'Minimum  : ',
+                            'Minimum : ',
                             this.props.product.data.minimum,
                             ' Allowed in stock',
                           ),
