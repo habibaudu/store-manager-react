@@ -150,8 +150,8 @@ export const createAttendant = (
     })
     .catch(({ response }) => {
       dispatch(setSignupState(constants.SIGNUP_ERROR));
-      dispatch(setSignupError(response.data.error));
-      toast.error(response.data.error, {
+      dispatch(setSignupError(response));
+      toast.error(response, {
         hideProgressBar: true,
       });
     });

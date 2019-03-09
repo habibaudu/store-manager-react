@@ -10,8 +10,9 @@ export const LoginComponent = ({ loginUser, loginState }) => {
     const password = e.target.elements.password.value.trim();
     loginUser(email, password);
   };
-
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem('token')
+    ? localStorage.getItem('token')
+    : '';
   const role = jwtDecode(token).userRole;
   const page = role === 'ADMIN' ? `/admin` : `/products`;
   return (
@@ -39,7 +40,8 @@ export const LoginComponent = ({ loginUser, loginState }) => {
         </nav>
 
         <div className="formbox">
-          {loginState === constants.LOGGING_IN && 'please wait ...'}
+          {loginState === constants.LOGGING_IN &&
+            'please wait checking your credentials ...'}
           {loginState === constants.LOGIN_SUCCESS && (
             <div>
               Login was Successful. <Redirect to={page} />{' '}

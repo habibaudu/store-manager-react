@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import img1 from '../img/jordans shoe.jpeg';
+import img1 from '../img/shoeavater.jpeg';
 import img2 from '../img/walltims.jpeg';
 import img3 from '../img/jor.jpeg';
 import img4 from '../img/femaleshoe.jpeg';
@@ -10,11 +10,6 @@ class SlideShowComponent extends React.Component {
   constructor(props) {
     super(props);
   }
-
-  signUserOut = () => {
-    localStorage.removeItem('token');
-    return <Redirect to="/" />;
-  };
 
   render() {
     return (
@@ -28,16 +23,7 @@ class SlideShowComponent extends React.Component {
               {' '}
               <Link to="/">Home</Link>
             </li>
-            <li>
-              <Link
-                to="/"
-                onClick={() => {
-                  signUserOut();
-                }}
-              >
-                Logout
-              </Link>
-            </li>
+
             <li className="current">
               {' '}
               <Link to="/products">Products</Link>

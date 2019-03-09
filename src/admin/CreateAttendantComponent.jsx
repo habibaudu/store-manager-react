@@ -23,11 +23,6 @@ const CreateAttendantComponent = ({
     signupUser(email, password, username, Role);
   };
 
-  signUserOut = () => {
-    localStorage.removeItem('token');
-    return <Redirect to="/" />;
-  };
-
   return (
     <div>
       <Fragment>
@@ -39,16 +34,6 @@ const CreateAttendantComponent = ({
             <li>
               {' '}
               <Link to="/admin">Admin</Link>
-            </li>
-            <li>
-              <Link
-                to="/"
-                onClick={() => {
-                  signUserOut();
-                }}
-              >
-                Logout
-              </Link>
             </li>
           </ul>
           <div className="burger">
@@ -119,8 +104,8 @@ const CreateAttendantComponent = ({
 
 const mapStateToProps = state => {
   return {
-    signupState: state.adminReducer.signupState,
-    errormessage: state.adminReducer.errormessage,
+    signupState: state.adminReducer,
+    errormessage: state.adminReducer,
   };
 };
 
@@ -135,4 +120,8 @@ const CreateAttendantContainer = connect(
   mapDispatchToProps,
 )(CreateAttendantComponent);
 
-export { CreateAttendantContainer };
+export {
+  CreateAttendantContainer,
+  CreateAttendantComponent,
+  mapDispatchToProps,
+};

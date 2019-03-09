@@ -9,6 +9,7 @@ import { Admin } from '../admin';
 import { AddProduct } from '../admin';
 import { CreateAttendant } from '../admin';
 import '../styles/index.css';
+import { navSlide } from '../js/index.js';
 
 const App = () => (
   <Router>

@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomePage Component should render the Landing Page 1`] = `
+<Fragment>
+  <div
+    className="container"
+  >
+    <div
+      id="header"
+    >
+      Excl shoes
+    </div>
+    <div
+      className="divide clearfix"
+    >
+      <section
+        className="landing2"
+      >
+        <img
+          src={Object {}}
+        />
+      </section>
+      <section
+        className="landing"
+      >
+        <div
+          className="logo_landing"
+        >
+          <h4>
+            Store Manager
+          </h4>
+        </div>
+        <p>
+          Welcome to Exclusive shoe's STORE MANAGER app,which aids in effective management of our Store.To continue login with admin provided login credentials
+        </p>
+        <Link
+          className="btn1"
+          replace={false}
+          to="/login"
+        >
+          Login
+        </Link>
+      </section>
+    </div>
+  </div>
+</Fragment>
+`;

@@ -1,0 +1,217 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SALES ATTENDANT RECORD TEST SUITE Record Component should render the Cart container 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;
+
+exports[`SALES ATTENDANT RECORD TEST SUITE Record Component should render the cart Page 1`] = `
+<Fragment>
+  <div>
+    <nav>
+      <div
+        className="logo"
+      >
+        <h4>
+          Store Manager
+        </h4>
+      </div>
+      <ul
+        className="nav-links"
+      >
+        <li>
+           
+          <Link
+            replace={false}
+            to="/products"
+          >
+            Products
+          </Link>
+        </li>
+        <li
+          className="current"
+        >
+           
+          <Link
+            replace={false}
+            to="/cart"
+          >
+            Cart
+          </Link>
+        </li>
+      </ul>
+      <div
+        className="burger"
+      >
+        <div
+          className="line1"
+        />
+        <div
+          className="line2"
+        />
+        <div
+          className="line3"
+        />
+      </div>
+    </nav>
+    <div
+      className="formbox"
+    >
+      <div
+        className="log_head"
+      >
+        <h1>
+          Your Cart
+        </h1>
+      </div>
+      <div
+        className="article"
+        id="cartproduct"
+      >
+        <div
+          key="shoe"
+        >
+          <div
+            className="show"
+          >
+            <img
+              alt=" "
+              src=""
+            />
+          </div>
+          <div
+            className="discrip"
+          >
+            <span
+              className="note"
+            >
+              shoe
+            </span>
+            <br />
+            <span
+              className="note"
+            >
+              Price :$
+              2345
+            </span>
+            <br />
+            <span
+              className="note"
+            >
+              Quantity In Cart :
+            </span>
+            <br />
+            <span
+              className="note"
+            >
+              Quantity in Store :
+              34
+            </span>
+            <br />
+            <button
+              className="bt2"
+              onClick={[Function]}
+            >
+              Add
+            </button>
+            <button
+              className="bt2"
+              onClick={[Function]}
+            >
+              Remove
+            </button>
+            <br />
+            <br />
+            <br />
+            <br />
+          </div>
+        </div>
+        <div
+          key="shoe"
+        >
+          <div
+            className="show"
+          >
+            <img
+              alt=" "
+              src=""
+            />
+          </div>
+          <div
+            className="discrip"
+          >
+            <span
+              className="note"
+            >
+              shoe
+            </span>
+            <br />
+            <span
+              className="note"
+            >
+              Price :$
+              2000
+            </span>
+            <br />
+            <span
+              className="note"
+            >
+              Quantity In Cart :
+            </span>
+            <br />
+            <span
+              className="note"
+            >
+              Quantity in Store :
+              34
+            </span>
+            <br />
+            <button
+              className="bt2"
+              onClick={[Function]}
+            >
+              Add
+            </button>
+            <button
+              className="bt2"
+              onClick={[Function]}
+            >
+              Remove
+            </button>
+            <br />
+            <br />
+            <br />
+            <br />
+          </div>
+        </div>
+        <span
+          className="note"
+        >
+          Total :
+          NaN
+        </span>
+        <br />
+        <form
+          id="cart"
+          onSubmit={[Function]}
+        >
+          <input
+            type="submit"
+            value="Checkout"
+          />
+          <br />
+          <br />
+          <br />
+          <br />
+        </form>
+      </div>
+      <div
+        className="form_footer clearfix"
+      >
+        <p />
+      </div>
+    </div>
+  </div>
+</Fragment>
+`;
