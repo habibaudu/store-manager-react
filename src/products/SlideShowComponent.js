@@ -1,26 +1,16 @@
 import React from 'react';
-import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import {fetchAllProduct} from '../actions/products';
-import img1 from '../img/jordans shoe.jpg';
-import img2 from  '../img/walltims.jpg';
-import img3 from  '../img/jor.jpg';
-import img4 from  '../img/femaleshoe.jpg';
-import img5 from  '../img/jor2.jpg';
+import img1 from '../img/jordans shoe.jpeg';
+import img2 from  '../img/walltims.jpeg';
+import img3 from  '../img/jor.jpeg';
+import img4 from  '../img/femaleshoe.jpeg';
+import img5 from  '../img/jor2.jpeg';
 
-class products extends React.Component {
+class SlideShowComponent extends React.Component {
   constructor(props){
     super(props);
   }
-
-
-   componentDidMount(){
-     
-        this.props.fetchAllProduct();
-    }
   
-  
-    
     render(){
    return (
    <div>
@@ -104,74 +94,10 @@ class products extends React.Component {
        
     </header>
     
-<div className ='mobile_header'>
-            <img src ={img2} />
-</div> 
-<section id="title"> 
- Search for Product
- <form id='search' className='byid'>
-    <input type="text" placeholder="Search product by name.." name="search" id ='filter2' />
-    <button type="submit">search </button>
-  </form>  
-</section>
-     
-    <div id ="aproduct" className="article2 clearfix">
-         
-    </div>
-<section id="title">
-   <a href ='#'> products </a> 
-   </section>
-
-<div id ="allproduct" className="article clearfix">
-
-{this.props.payload ? (
-              this.props.payload.map(product=> {
-                
-                const { productname, id,item,price,quantity} = product;
-                const getsrc = item;
-                const getalt = item;
-                const regex2 = /<img.*?alt='(.*?)'/;
-                const regex = /<img.*?src='(.*?)'/;
-                const altvalue= regex2.exec(getalt)[1]
-                const srcvalue = regex.exec(getsrc)[1];
-                                
-                return (
-                  <div key={productname}>
-                  <section>
-                     {<img src={srcvalue} alt ={altvalue} />}
-                     <span className='note2'>{id }</span><br/>
-                     <span className='note2'>{productname}</span><br/>
-                     <span className='note'>#{price}</span><br/>
-                     <span className='note2'>{quantity} in stock</span><br/>
-                     <a href='addcart.html' className='btn2'>Add to Cart</a>
-                    </section>
-                  </div>
-                );
-              })
-          
-            ) : (
-              <h3>loading product please wait...</h3>
-            )}
-    
-     
-</div>
-<p className ='note2'>page 1 of 4     <a href="#" className='btn2'>next</a></p>
-<footer id ='sec'>
-        <p>Store Manager copyright &copy 2018 </p>         
-</footer>
-
-
-
    </div>);
 }
 };
 
-const mapStateToProps = (state) => {
-  return {payload :state.productReducer.products}
-}
 
 
-
-
-
-export default connect(mapStateToProps,{fetchAllProduct})(products);
+export default SlideShowComponent;
