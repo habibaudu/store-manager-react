@@ -22,7 +22,7 @@ class SlideShowComponent extends React.Component {
                         <ul className='nav-links'>
                             <li> <Link to = '/'>Home</Link></li>
                             <li className ='current'> <Link to='/products'>Products</Link></li>
-                            <li> <a href ='viewRecord.html'>Records</a></li>
+                            <li> <Link  to ='records'>Records</Link> </li>
                            
                             
                         </ul>
