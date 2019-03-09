@@ -7,12 +7,12 @@ const adminReducer = (state = {}, action) => {
       return { ...state,
               payload };
       }
-      case types.ADD_PRODUCT:{
+    case types.ADD_PRODUCT:{
         const { productadded } = action
         return { ...state,
           productadded };
         }
-      case types.SET_ADD_STATE:{
+    case types.SET_ADD_STATE:{
           const { status } = action
           return { ...state,
             status };
@@ -22,7 +22,12 @@ const adminReducer = (state = {}, action) => {
             return { ...state,
               errormessage };
             }
-    default:
+      case types.DELETE_PRODUCT:{
+              const {deleteProduct } = action
+              return { ...state,
+                deleteProduct };
+              }
+     default:
       return state;
   }
 }
