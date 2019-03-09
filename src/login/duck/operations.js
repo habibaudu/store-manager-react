@@ -18,8 +18,8 @@ const doLogin = (email, password) => dispatch => {
     })
     .catch(({ response }) => {
       dispatch(setLoginState(constants.LOGIN_ERROR));
-      dispatch(setLoginError(response.error));
-      toast.error(response.error, {
+      dispatch(setLoginError(response));
+      toast.error(response, {
         hideProgressBar: true,
       });
     });

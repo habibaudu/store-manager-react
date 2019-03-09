@@ -11,11 +11,6 @@ class SlideShowComponent extends React.Component {
     super(props);
   }
 
-  signUserOut = () => {
-    localStorage.removeItem('token');
-    return <Redirect to="/" />;
-  };
-
   render() {
     return (
       <div>
@@ -28,16 +23,7 @@ class SlideShowComponent extends React.Component {
               {' '}
               <Link to="/">Home</Link>
             </li>
-            <li>
-              <Link
-                to="/"
-                onClick={() => {
-                  signUserOut();
-                }}
-              >
-                Logout
-              </Link>
-            </li>
+
             <li className="current">
               {' '}
               <Link to="/products">Products</Link>

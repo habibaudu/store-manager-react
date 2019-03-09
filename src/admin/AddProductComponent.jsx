@@ -7,14 +7,14 @@ import { constants } from './duck';
 const images =
   'https://res.cloudinary.com/hba821/image/upload/v1551973753/shoeavater.jpg';
 
-class addProductComponent extends React.Component {
+class AddProductComponent extends React.Component {
   onFormSubmit = e => {
     e.preventDefault();
     const { addProduct } = this.props;
     const productname = e.target.elements.productname.value.trim();
-    const price = parseInt(e.target.elements.price.value.trim(), 10);
-    const minimum = parseInt(e.target.elements.minimum.value.trim(), 10);
-    const quantity = parseInt(e.target.elements.quantity.value.trim(), 10);
+    const price = parseInt(e.target.elements.price.value, 10);
+    const minimum = parseInt(e.target.elements.minimum.value, 10);
+    const quantity = parseInt(e.target.elements.quantity.value, 10);
     const description = e.target.elements.description.value.trim();
 
     addProduct(productname, price, minimum, quantity, images, description);
@@ -183,9 +183,14 @@ const mapDispatchToProps = dispatch => {
       ),
   };
 };
-const addProductContainer = connect(
+const AddProductContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(addProductComponent);
+)(AddProductComponent);
 
-export { addProductContainer, mapDispatchToProps, mapStateToProps };
+export {
+  AddProductContainer,
+  mapDispatchToProps,
+  mapStateToProps,
+  AddProductComponent,
+};

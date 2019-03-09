@@ -1,0 +1,369 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ADD PRODUCT TEST SUITE Admin Component should render the AddProduct Component 1`] = `
+<Fragment>
+  <div>
+    <nav>
+      <div
+        className="logo"
+      >
+        <h4>
+          Store Manager
+        </h4>
+      </div>
+      <ul
+        className="nav-links"
+      >
+        <li>
+           
+          <Link
+            replace={false}
+            to="/"
+          >
+            Home
+          </Link>
+        </li>
+        <li
+          className="current"
+        >
+           
+          <Link
+            replace={false}
+            to="/admin"
+          >
+            Admin
+          </Link>
+        </li>
+      </ul>
+      <div
+        className="burger"
+      >
+        <div
+          className="line1"
+        />
+        <div
+          className="line2"
+        />
+        <div
+          className="line3"
+        />
+      </div>
+    </nav>
+    <div
+      className="addbox"
+    >
+      <div
+        className="log_head"
+      >
+        <h1>
+          Create product
+        </h1>
+      </div>
+      <hr />
+      <br />
+      <br />
+      <p>
+        Fill all fields in the form below and click submit or cancel to go back
+      </p>
+      <br />
+      <br />
+      <form
+        onSubmit={[Function]}
+      >
+        <p>
+          Product Name
+        </p>
+        <br />
+        <input
+          id="productname"
+          name="productname"
+          placeholder="Product Name"
+          type="text"
+        />
+        <br />
+        <p>
+          Price
+        </p>
+        <br />
+        <input
+          id="Price"
+          name="price"
+          placeholder="Product Price"
+          type="text"
+        />
+        <br />
+        <p>
+          Minimum Allowed
+        </p>
+        <br />
+        <select
+          id="Minimum"
+          name="minimum"
+        >
+          <option
+            value="0"
+          >
+            0
+          </option>
+          <option
+            value="1"
+          >
+            1
+          </option>
+          <option
+            value="2"
+          >
+            2
+          </option>
+          <option
+            value="3"
+          >
+            3
+          </option>
+          <option
+            value="4"
+          >
+            4
+          </option>
+          <option
+            value="5"
+          >
+            5
+          </option>
+          <option
+            value="6"
+          >
+            6
+          </option>
+          <option
+            value="7"
+          >
+            7
+          </option>
+          <option
+            value="8"
+          >
+            8
+          </option>
+          <option
+            value="9"
+          >
+            9
+          </option>
+          <option
+            value="10"
+          >
+            10
+          </option>
+          <option
+            value="11"
+          >
+            11
+          </option>
+          <option
+            value="12"
+          >
+            12
+          </option>
+          <option
+            value="13"
+          >
+            13
+          </option>
+          <option
+            value="14"
+          >
+            14
+          </option>
+          <option
+            value="15"
+          >
+            15
+          </option>
+          <option
+            value="16"
+          >
+            16
+          </option>
+          <option
+            value="17"
+          >
+            17
+          </option>
+          <option
+            value="18"
+          >
+            18
+          </option>
+          <option
+            value="19"
+          >
+            19
+          </option>
+          <option
+            value="20"
+          >
+            20
+          </option>
+        </select>
+        <br />
+        <p>
+          Quantity
+        </p>
+        <br />
+        <select
+          id="Quantity"
+          name="quantity"
+        >
+          <option
+            value="0"
+          >
+            0
+          </option>
+          <option
+            value="1"
+          >
+            1
+          </option>
+          <option
+            value="2"
+          >
+            2
+          </option>
+          <option
+            value="3"
+          >
+            3
+          </option>
+          <option
+            value="4"
+          >
+            4
+          </option>
+          <option
+            value="5"
+          >
+            5
+          </option>
+          <option
+            value="6"
+          >
+            6
+          </option>
+          <option
+            value="7"
+          >
+            7
+          </option>
+          <option
+            value="8"
+          >
+            8
+          </option>
+          <option
+            value="9"
+          >
+            9
+          </option>
+          <option
+            value="10"
+          >
+            10
+          </option>
+          <option
+            value="11"
+          >
+            11
+          </option>
+          <option
+            value="12"
+          >
+            12
+          </option>
+          <option
+            value="13"
+          >
+            13
+          </option>
+          <option
+            value="14"
+          >
+            14
+          </option>
+          <option
+            value="15"
+          >
+            15
+          </option>
+          <option
+            value="16"
+          >
+            16
+          </option>
+          <option
+            value="17"
+          >
+            17
+          </option>
+          <option
+            value="18"
+          >
+            18
+          </option>
+          <option
+            value="19"
+          >
+            19
+          </option>
+          <option
+            value="20"
+          >
+            20
+          </option>
+        </select>
+        <br />
+        <label
+          id="#bb"
+        >
+           
+          choose image
+          <input
+            id="img"
+            name="profilepix"
+            type="file"
+          />
+        </label>
+        <textarea
+          cols="20"
+          id="description"
+          name="description"
+          placeholder="Enter Description of product"
+          rows="5"
+        />
+        <br />
+        <br />
+        <Link
+          className="cancelproduct"
+          replace={false}
+          to="/admin"
+        >
+          Cancel
+        </Link>
+        <br />
+        <br />
+        <input
+          type="submit"
+          value="submit"
+        />
+        <br />
+      </form>
+    </div>
+  </div>
+</Fragment>
+`;
+
+exports[`ADD PRODUCT TEST SUITE Admin Component should render the AddProduct container 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;

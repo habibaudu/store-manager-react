@@ -238,7 +238,7 @@
     };
   },
   function(e, t, n) {
-    e.exports = n.p + '2ccd02a37fddf4bbb07ebf53a4b6be9a.jpeg';
+    e.exports = n.p + '6c471bd3caac05991c17ba3fc8a47e35.jpeg';
   },
   function(e, t, n) {
     var r = n(78);
@@ -1877,7 +1877,7 @@ object-assign
     e.exports = n.p + 'dfa8b06a77bc068d02d0e8078b7c4ea1.jpeg';
   },
   function(e, t, n) {
-    e.exports = n.p + 'eb074651179bec6e3803de1a35759e30.jpeg';
+    e.exports = n.p + '137748b29846f089b9645adf0a0eb637.jpeg';
   },
   function(e, t, n) {
     e.exports = n.p + 'b710225fc4de860467c921e96cd6d7d9.jpeg';
@@ -12789,9 +12789,7 @@ object-assign
               })
               .catch(function(e) {
                 var t = e.response;
-                n(Et(gt)),
-                  n(wt(t.error)),
-                  xt.toast.error(t.error, { hideProgressBar: !0 });
+                n(Et(gt)), n(wt(t)), xt.toast.error(t, { hideProgressBar: !0 });
               })
           );
         };
@@ -12932,7 +12930,9 @@ object-assign
       Dt = function(e) {
         var t = e.loginUser,
           n = e.loginState,
-          a = localStorage.getItem('token'),
+          a = localStorage.getItem('token')
+            ? localStorage.getItem('token')
+            : '',
           i = 'ADMIN' === jt()(a).userRole ? '/admin' : '/products';
         return o.a.createElement(
           r.Fragment,
@@ -12975,7 +12975,7 @@ object-assign
             o.a.createElement(
               'div',
               { className: 'formbox' },
-              n === ht && 'please wait ...',
+              n === ht && 'please wait checking your credentials ...',
               n === yt &&
                 o.a.createElement(
                   'div',
@@ -13134,57 +13134,39 @@ object-assign
           Object.defineProperty(e, r.key, r);
       }
     }
-    function Zt(e) {
-      return (Zt = Object.setPrototypeOf
+    function Zt(e, t) {
+      return !t || ('object' !== Qt(t) && 'function' != typeof t)
+        ? (function(e) {
+            if (void 0 === e)
+              throw new ReferenceError(
+                "this hasn't been initialised - super() hasn't been called",
+              );
+            return e;
+          })(e)
+        : t;
+    }
+    function en(e) {
+      return (en = Object.setPrototypeOf
         ? Object.getPrototypeOf
         : function(e) {
             return e.__proto__ || Object.getPrototypeOf(e);
           })(e);
     }
-    function en(e, t) {
-      return (en =
+    function tn(e, t) {
+      return (tn =
         Object.setPrototypeOf ||
         function(e, t) {
           return (e.__proto__ = t), e;
         })(e, t);
     }
-    function tn(e) {
-      if (void 0 === e)
-        throw new ReferenceError(
-          "this hasn't been initialised - super() hasn't been called",
-        );
-      return e;
-    }
     var nn = (function(e) {
       function t(e) {
-        var n, r, a, i, l, u;
         return (
           (function(e, t) {
             if (!(e instanceof t))
               throw new TypeError('Cannot call a class as a function');
           })(this, t),
-          (r = this),
-          (n =
-            !(a = Zt(t).call(this, e)) ||
-            ('object' !== Qt(a) && 'function' != typeof a)
-              ? tn(r)
-              : a),
-          (i = tn(tn(n))),
-          (u = function() {
-            return (
-              localStorage.removeItem('token'),
-              o.a.createElement(Redirect, { to: '/' })
-            );
-          }),
-          (l = 'signUserOut') in i
-            ? Object.defineProperty(i, l, {
-                value: u,
-                enumerable: !0,
-                configurable: !0,
-                writable: !0,
-              })
-            : (i[l] = u),
-          n
+          Zt(this, en(t).call(this, e))
         );
       }
       var n, r, a;
@@ -13197,7 +13179,7 @@ object-assign
           (e.prototype = Object.create(t && t.prototype, {
             constructor: { value: e, writable: !0, configurable: !0 },
           })),
-            t && en(e, t);
+            t && tn(e, t);
         })(t, o.a.Component),
         (n = t),
         (r = [
@@ -13223,20 +13205,6 @@ object-assign
                       null,
                       ' ',
                       o.a.createElement(ot, { to: '/' }, 'Home'),
-                    ),
-                    o.a.createElement(
-                      'li',
-                      null,
-                      o.a.createElement(
-                        ot,
-                        {
-                          to: '/',
-                          onClick: function() {
-                            signUserOut();
-                          },
-                        },
-                        'Logout',
-                      ),
                     ),
                     o.a.createElement(
                       'li',
@@ -13528,7 +13496,8 @@ object-assign
                       },
                       o.a.createElement('input', {
                         type: 'text',
-                        placeholder: 'Search product by name..',
+                        placeholder:
+                          'Enter the exact name product  eg Men Loafers',
                         name: 'search',
                         id: 'filter2',
                       }),
@@ -13631,15 +13600,18 @@ object-assign
                             i = t.price,
                             l = t.quantity,
                             u = a,
-                            c = /<img.*?alt='(.*?)'/.exec(a)[1],
-                            s = /<img.*?src='(.*?)'/.exec(u)[1];
+                            c = a,
+                            s = /<img.*?alt='(.*?)'/,
+                            f = /<img.*?src='(.*?)'/,
+                            p = s.exec(c) ? s.exec(c)[1] : ' ',
+                            d = f.exec(u) ? f.exec(c)[1] : '';
                           return o.a.createElement(
                             'div',
                             { key: n },
                             o.a.createElement(
                               'section',
                               null,
-                              o.a.createElement('img', { src: s, alt: c }),
+                              o.a.createElement('img', { src: d, alt: p }),
                               o.a.createElement(
                                 'span',
                                 { className: 'note2' },
@@ -13900,6 +13872,16 @@ object-assign
             o.a.createElement(
               'div',
               { className: 'formbox' },
+              e.cart.salesState === mn &&
+                'please wait creating sales record...',
+              e.cart.salesState === hn &&
+                o.a.createElement(
+                  'div',
+                  null,
+                  'Sales Record Created. ',
+                  o.a.createElement(Nt, { to: '/products' }),
+                  ' ',
+                ),
               o.a.createElement(
                 'div',
                 { className: 'log_head' },
@@ -13927,9 +13909,12 @@ object-assign
                             { className: 'show' },
                             ((r = t.item),
                             (i = r),
-                            (l = /<img.*?alt='(.*?)'/.exec(r)[1]),
-                            (u = /<img.*?src='(.*?)'/.exec(i)[1]),
-                            o.a.createElement('img', { src: u, alt: l })),
+                            (c = /<img.*?src='(.*?)'/),
+                            (s = (u = /<img.*?alt='(.*?)'/).exec((l = r))
+                              ? u.exec(l)[1]
+                              : ' '),
+                            (f = c.exec(i) ? c.exec(l)[1] : ''),
+                            o.a.createElement('img', { src: f, alt: s })),
                           ),
                           o.a.createElement(
                             'div',
@@ -13988,7 +13973,7 @@ object-assign
                           ),
                         )
                       );
-                      var r, i, l, u;
+                      var r, i, l, u, c, s, f;
                     })
                   : o.a.createElement(
                       'h3',
@@ -13997,15 +13982,6 @@ object-assign
                     ),
                 o.a.createElement('span', { className: 'note' }, 'Total :', n),
                 o.a.createElement('br', null),
-                e.cart.salesState === mn && 'please wait ...',
-                e.cart.salesState === hn &&
-                  o.a.createElement(
-                    'div',
-                    null,
-                    'Sales Record Created. ',
-                    o.a.createElement(Nt, { to: '/products' }),
-                    ' ',
-                  ),
                 o.a.createElement(
                   'form',
                   {
@@ -14016,7 +13992,7 @@ object-assign
                   },
                   o.a.createElement('input', {
                     type: 'submit',
-                    value: 'submit',
+                    value: 'Checkout',
                   }),
                   o.a.createElement('br', null),
                   o.a.createElement('br', null),
@@ -14178,17 +14154,19 @@ object-assign
                         'li',
                         null,
                         ' ',
-                        o.a.createElement('a', { href: 'index.html' }, 'Home'),
+                        o.a.createElement(ot, { to: '/' }, 'Home'),
                       ),
                       o.a.createElement(
                         'li',
-                        { className: 'current' },
+                        null,
                         ' ',
-                        o.a.createElement(
-                          'a',
-                          { href: 'viewRecord.html' },
-                          'Records',
-                        ),
+                        o.a.createElement(ot, { to: '/products' }, 'products'),
+                      ),
+                      o.a.createElement(
+                        'li',
+                        null,
+                        ' ',
+                        o.a.createElement(ot, { to: '/records' }, 'Records'),
                       ),
                     ),
                     o.a.createElement(
@@ -14423,59 +14401,39 @@ object-assign
           Object.defineProperty(e, r.key, r);
       }
     }
-    function lr(e) {
-      return (lr = Object.setPrototypeOf
+    function lr(e, t) {
+      return !t || ('object' !== ar(t) && 'function' != typeof t)
+        ? (function(e) {
+            if (void 0 === e)
+              throw new ReferenceError(
+                "this hasn't been initialised - super() hasn't been called",
+              );
+            return e;
+          })(e)
+        : t;
+    }
+    function ur(e) {
+      return (ur = Object.setPrototypeOf
         ? Object.getPrototypeOf
         : function(e) {
             return e.__proto__ || Object.getPrototypeOf(e);
           })(e);
     }
-    function ur(e, t) {
-      return (ur =
+    function cr(e, t) {
+      return (cr =
         Object.setPrototypeOf ||
         function(e, t) {
           return (e.__proto__ = t), e;
         })(e, t);
     }
-    function cr(e) {
-      if (void 0 === e)
-        throw new ReferenceError(
-          "this hasn't been initialised - super() hasn't been called",
-        );
-      return e;
-    }
     var sr = (function(e) {
         function t() {
-          var e, n, r, a, i, l, u;
-          !(function(e, t) {
-            if (!(e instanceof t))
-              throw new TypeError('Cannot call a class as a function');
-          })(this, t);
-          for (var c = arguments.length, s = new Array(c), f = 0; f < c; f++)
-            s[f] = arguments[f];
           return (
-            (r = this),
-            (n =
-              !(a = (e = lr(t)).call.apply(e, [this].concat(s))) ||
-              ('object' !== ar(a) && 'function' != typeof a)
-                ? cr(r)
-                : a),
-            (i = cr(cr(n))),
-            (u = function() {
-              return (
-                localStorage.removeItem('token'),
-                o.a.createElement(Redirect, { to: '/' })
-              );
-            }),
-            (l = 'signUserOut') in i
-              ? Object.defineProperty(i, l, {
-                  value: u,
-                  enumerable: !0,
-                  configurable: !0,
-                  writable: !0,
-                })
-              : (i[l] = u),
-            n
+            (function(e, t) {
+              if (!(e instanceof t))
+                throw new TypeError('Cannot call a class as a function');
+            })(this, t),
+            lr(this, ur(t).apply(this, arguments))
           );
         }
         var n, r, a;
@@ -14488,7 +14446,7 @@ object-assign
             (e.prototype = Object.create(t && t.prototype, {
               constructor: { value: e, writable: !0, configurable: !0 },
             })),
-              t && ur(e, t);
+              t && cr(e, t);
           })(t, o.a.Component),
           (n = t),
           (r = [
@@ -14519,24 +14477,15 @@ object-assign
                       o.a.createElement(
                         'li',
                         null,
-                        ' ',
+                        o.a.createElement(ot, { to: '/' }, 'Home'),
+                      ),
+                      o.a.createElement(
+                        'li',
+                        null,
                         o.a.createElement(
-                          'div',
-                          { className: 'dropdown' },
-                          o.a.createElement(
-                            'span',
-                            { className: 'dropbtn' },
-                            'User',
-                          ),
-                          o.a.createElement(
-                            'div',
-                            { className: 'dropdown-content' },
-                            o.a.createElement(
-                              ot,
-                              { to: '/createAttendant' },
-                              'Create Attendant',
-                            ),
-                          ),
+                          ot,
+                          { to: '/createAttendant' },
+                          'Create Attendant',
                         ),
                       ),
                       o.a.createElement(
@@ -14547,20 +14496,6 @@ object-assign
                           alt: 'adminlogo',
                           id: 'adminlogo',
                         }),
-                      ),
-                      o.a.createElement(
-                        'li',
-                        null,
-                        o.a.createElement(
-                          ot,
-                          {
-                            to: '/',
-                            onClick: function() {
-                              signUserOut();
-                            },
-                          },
-                          'Logout',
-                        ),
                       ),
                     ),
                     o.a.createElement(
@@ -14623,7 +14558,7 @@ object-assign
                                   c = t.modified_date;
                                 return o.a.createElement(
                                   'tr',
-                                  { key: n },
+                                  { key: r },
                                   o.a.createElement('td', null, n),
                                   o.a.createElement('td', null, r),
                                   o.a.createElement('td', null, l),
@@ -14637,6 +14572,7 @@ object-assign
                                     o.a.createElement(
                                       'button',
                                       {
+                                        id: 'tes',
                                         className: 'bt3',
                                         onClick: function() {
                                           return e.props.deleteProduct(n);
@@ -14814,9 +14750,9 @@ object-assign
               e.preventDefault();
               var t = n.props.addProduct,
                 r = e.target.elements.productname.value.trim(),
-                o = parseInt(e.target.elements.price.value.trim(), 10),
-                a = parseInt(e.target.elements.minimum.value.trim(), 10),
-                i = parseInt(e.target.elements.quantity.value.trim(), 10),
+                o = parseInt(e.target.elements.price.value, 10),
+                a = parseInt(e.target.elements.minimum.value, 10),
+                i = parseInt(e.target.elements.quantity.value, 10),
                 l = e.target.elements.description.value.trim();
               t(r, o, a, i, yr, l);
             }),
@@ -15085,10 +15021,7 @@ object-assign
       )(vr),
       xr = ne(
         function(e) {
-          return {
-            signupState: e.adminReducer.signupState,
-            errormessage: e.adminReducer.errormessage,
-          };
+          return { signupState: e.adminReducer, errormessage: e.adminReducer };
         },
         function(e) {
           return {
@@ -15119,10 +15052,8 @@ object-assign
                         .catch(function(e) {
                           var t = e.response;
                           o(tr(Gn)),
-                            o(er(t.data.error)),
-                            xt.toast.error(t.data.error, {
-                              hideProgressBar: !0,
-                            });
+                            o(er(t)),
+                            xt.toast.error(t, { hideProgressBar: !0 });
                         })
                     );
                   };
@@ -15135,191 +15066,157 @@ object-assign
         var t = e.signupUser,
           n = e.signupState,
           a = e.errorMessage;
-        return (
-          (signUserOut = function() {
-            return (
-              localStorage.removeItem('token'),
-              o.a.createElement(Nt, { to: '/' })
-            );
-          }),
-          o.a.createElement(
-            'div',
-            null,
-            o.a.createElement(
-              r.Fragment,
-              null,
-              o.a.createElement(
-                'nav',
-                null,
-                o.a.createElement(
-                  'div',
-                  { className: 'logo' },
-                  o.a.createElement('h4', null, 'Store Manager'),
-                ),
-                o.a.createElement(
-                  'ul',
-                  { className: 'nav-links' },
-                  o.a.createElement(
-                    'li',
-                    null,
-                    ' ',
-                    o.a.createElement(ot, { to: '/admin' }, 'Admin'),
-                  ),
-                  o.a.createElement(
-                    'li',
-                    null,
-                    o.a.createElement(
-                      ot,
-                      {
-                        to: '/',
-                        onClick: function() {
-                          signUserOut();
-                        },
-                      },
-                      'Logout',
-                    ),
-                  ),
-                ),
-                o.a.createElement(
-                  'div',
-                  { className: 'burger' },
-                  o.a.createElement('div', { className: 'line1' }),
-                  o.a.createElement('div', { className: 'line2' }),
-                  o.a.createElement('div', { className: 'line3' }),
-                ),
-              ),
-              o.a.createElement(
-                'div',
-                { className: 'formbox' },
-                n === $n && 'Creating Attendant please wait....',
-                n === Yn && 'Attendant created sucessfully',
-                a === Gn && 'An error occured while creating attendant',
-                o.a.createElement(
-                  'div',
-                  { className: 'log_head' },
-                  o.a.createElement('h1', null, 'Create User'),
-                ),
-                o.a.createElement(
-                  'form',
-                  {
-                    onSubmit: function(e) {
-                      e.preventDefault();
-                      var n = e.target.elements.email.value.trim(),
-                        r = e.target.elements.username.value.trim(),
-                        o = e.target.elements.password.value.trim(),
-                        a = e.target.elements.password2.value.trim(),
-                        i = e.target.elements.role.value.trim();
-                      o === a ? t(n, o, r, i) : alert('passwords do not match');
-                    },
-                  },
-                  o.a.createElement('p', null, 'User name'),
-                  o.a.createElement('input', {
-                    type: 'text',
-                    name: 'username',
-                    placeholder: 'Enter Username',
-                    id: 'username',
-                  }),
-                  o.a.createElement('p', null, 'Email'),
-                  o.a.createElement('input', {
-                    type: 'email',
-                    name: 'email',
-                    placeholder: 'Enter Email',
-                    id: 'email',
-                  }),
-                  o.a.createElement('p', null, 'Password'),
-                  o.a.createElement('input', {
-                    type: 'password',
-                    name: 'password',
-                    placeholder: 'Enter password',
-                    id: 'password',
-                  }),
-                  o.a.createElement('p', null, 'confirm password'),
-                  o.a.createElement('input', {
-                    type: 'password',
-                    name: 'password2',
-                    placeholder: 'confirm password',
-                    id: 'password2',
-                  }),
-                  o.a.createElement('p', null, 'Role'),
-                  o.a.createElement('br', null),
-                  o.a.createElement(
-                    'select',
-                    { name: 'role', id: 'Role' },
-                    o.a.createElement('option', { value: 'ADMIN' }, 'ADMIN'),
-                    o.a.createElement('option', { value: 'USER' }, 'USER'),
-                  ),
-                  o.a.createElement('br', null),
-                  o.a.createElement('input', {
-                    type: 'submit',
-                    name: '',
-                    value: 'submit',
-                  }),
-                ),
-                o.a.createElement(
-                  'div',
-                  { className: 'form_footer' },
-                  o.a.createElement(
-                    'p',
-                    null,
-                    'Store Manager copyright &copy 2018 ',
-                  ),
-                ),
-              ),
-            ),
-          )
-        );
-      }),
-      Er = (n(79),
-      function() {
         return o.a.createElement(
-          ze,
+          'div',
           null,
           o.a.createElement(
             r.Fragment,
             null,
             o.a.createElement(
-              Ye,
+              'nav',
               null,
-              o.a.createElement(Je, { path: '/', component: ut, exact: !0 }),
-              o.a.createElement(Je, {
-                path: '/login',
-                component: At,
-                exact: !0,
-              }),
-              o.a.createElement(Je, {
-                path: '/products',
-                component: fn,
-                exact: !0,
-              }),
-              o.a.createElement(Je, {
-                path: '/cart',
-                component: xn,
-                exact: !0,
-              }),
-              o.a.createElement(Je, {
-                path: '/records',
-                component: jn,
-                exact: !0,
-              }),
-              o.a.createElement(Je, {
-                path: '/admin',
-                component: fr,
-                exact: !0,
-              }),
-              o.a.createElement(Je, {
-                path: '/addproduct',
-                component: br,
-                exact: !0,
-              }),
-              o.a.createElement(Je, {
-                path: '/createAttendant',
-                component: xr,
-                exact: !0,
-              }),
+              o.a.createElement(
+                'div',
+                { className: 'logo' },
+                o.a.createElement('h4', null, 'Store Manager'),
+              ),
+              o.a.createElement(
+                'ul',
+                { className: 'nav-links' },
+                o.a.createElement(
+                  'li',
+                  null,
+                  ' ',
+                  o.a.createElement(ot, { to: '/admin' }, 'Admin'),
+                ),
+              ),
+              o.a.createElement(
+                'div',
+                { className: 'burger' },
+                o.a.createElement('div', { className: 'line1' }),
+                o.a.createElement('div', { className: 'line2' }),
+                o.a.createElement('div', { className: 'line3' }),
+              ),
+            ),
+            o.a.createElement(
+              'div',
+              { className: 'formbox' },
+              n === $n && 'Creating Attendant please wait....',
+              n === Yn && 'Attendant created sucessfully',
+              a === Gn && 'An error occured while creating attendant',
+              o.a.createElement(
+                'div',
+                { className: 'log_head' },
+                o.a.createElement('h1', null, 'Create User'),
+              ),
+              o.a.createElement(
+                'form',
+                {
+                  onSubmit: function(e) {
+                    e.preventDefault();
+                    var n = e.target.elements.email.value.trim(),
+                      r = e.target.elements.username.value.trim(),
+                      o = e.target.elements.password.value.trim(),
+                      a = e.target.elements.password2.value.trim(),
+                      i = e.target.elements.role.value.trim();
+                    o === a ? t(n, o, r, i) : alert('passwords do not match');
+                  },
+                },
+                o.a.createElement('p', null, 'User name'),
+                o.a.createElement('input', {
+                  type: 'text',
+                  name: 'username',
+                  placeholder: 'Enter Username',
+                  id: 'username',
+                }),
+                o.a.createElement('p', null, 'Email'),
+                o.a.createElement('input', {
+                  type: 'email',
+                  name: 'email',
+                  placeholder: 'Enter Email',
+                  id: 'email',
+                }),
+                o.a.createElement('p', null, 'Password'),
+                o.a.createElement('input', {
+                  type: 'password',
+                  name: 'password',
+                  placeholder: 'Enter password',
+                  id: 'password',
+                }),
+                o.a.createElement('p', null, 'confirm password'),
+                o.a.createElement('input', {
+                  type: 'password',
+                  name: 'password2',
+                  placeholder: 'confirm password',
+                  id: 'password2',
+                }),
+                o.a.createElement('p', null, 'Role'),
+                o.a.createElement('br', null),
+                o.a.createElement(
+                  'select',
+                  { name: 'role', id: 'Role' },
+                  o.a.createElement('option', { value: 'ADMIN' }, 'ADMIN'),
+                  o.a.createElement('option', { value: 'USER' }, 'USER'),
+                ),
+                o.a.createElement('br', null),
+                o.a.createElement('input', {
+                  type: 'submit',
+                  name: '',
+                  value: 'submit',
+                }),
+              ),
+              o.a.createElement(
+                'div',
+                { className: 'form_footer' },
+                o.a.createElement(
+                  'p',
+                  null,
+                  'Store Manager copyright &copy 2018 ',
+                ),
+              ),
             ),
           ),
         );
       });
+    n(79);
+    var Er = function() {
+      return o.a.createElement(
+        ze,
+        null,
+        o.a.createElement(
+          r.Fragment,
+          null,
+          o.a.createElement(
+            Ye,
+            null,
+            o.a.createElement(Je, { path: '/', component: ut, exact: !0 }),
+            o.a.createElement(Je, { path: '/login', component: At, exact: !0 }),
+            o.a.createElement(Je, {
+              path: '/products',
+              component: fn,
+              exact: !0,
+            }),
+            o.a.createElement(Je, { path: '/cart', component: xn, exact: !0 }),
+            o.a.createElement(Je, {
+              path: '/records',
+              component: jn,
+              exact: !0,
+            }),
+            o.a.createElement(Je, { path: '/admin', component: fr, exact: !0 }),
+            o.a.createElement(Je, {
+              path: '/addproduct',
+              component: br,
+              exact: !0,
+            }),
+            o.a.createElement(Je, {
+              path: '/createAttendant',
+              component: xr,
+              exact: !0,
+            }),
+          ),
+        ),
+      );
+    };
     function wr(e) {
       for (var t = 1; t < arguments.length; t++) {
         var n = null != arguments[t] ? arguments[t] : {},

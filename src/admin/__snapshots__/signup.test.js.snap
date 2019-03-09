@@ -1,7 +1,124 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SIGNUP TEST SUITE Signup Component should render the Signup Page 1`] = `
-<ContextConsumer>
-  <Component />
-</ContextConsumer>
+<div>
+  <nav>
+    <div
+      className="logo"
+    >
+      <h4>
+        Store Manager
+      </h4>
+    </div>
+    <ul
+      className="nav-links"
+    >
+      <li>
+         
+        <Link
+          replace={false}
+          to="/admin"
+        >
+          Admin
+        </Link>
+      </li>
+    </ul>
+    <div
+      className="burger"
+    >
+      <div
+        className="line1"
+      />
+      <div
+        className="line2"
+      />
+      <div
+        className="line3"
+      />
+    </div>
+  </nav>
+  <div
+    className="formbox"
+  >
+    <div
+      className="log_head"
+    >
+      <h1>
+        Create User
+      </h1>
+    </div>
+    <form
+      onSubmit={[Function]}
+    >
+      <p>
+        User name
+      </p>
+      <input
+        id="username"
+        name="username"
+        placeholder="Enter Username"
+        type="text"
+      />
+      <p>
+        Email
+      </p>
+      <input
+        id="email"
+        name="email"
+        placeholder="Enter Email"
+        type="email"
+      />
+      <p>
+        Password
+      </p>
+      <input
+        id="password"
+        name="password"
+        placeholder="Enter password"
+        type="password"
+      />
+      <p>
+        confirm password
+      </p>
+      <input
+        id="password2"
+        name="password2"
+        placeholder="confirm password"
+        type="password"
+      />
+      <p>
+        Role
+      </p>
+      <br />
+      <select
+        id="Role"
+        name="role"
+      >
+        <option
+          value="ADMIN"
+        >
+          ADMIN
+        </option>
+        <option
+          value="USER"
+        >
+          USER
+        </option>
+      </select>
+      <br />
+      <input
+        name=""
+        type="submit"
+        value="submit"
+      />
+    </form>
+    <div
+      className="form_footer"
+    >
+      <p>
+        Store Manager copyright &copy 2018 
+      </p>
+    </div>
+  </div>
+</div>
 `;

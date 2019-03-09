@@ -5,10 +5,6 @@ class AdminComponent extends React.Component {
   componentDidMount() {
     this.props.fetchAllProducts();
   }
-  signUserOut = () => {
-    localStorage.removeItem('token');
-    return <Redirect to="/" />;
-  };
 
   render() {
     return (
@@ -20,26 +16,13 @@ class AdminComponent extends React.Component {
 
           <ul className="nav-links">
             <li>
-              {' '}
-              <div className="dropdown">
-                <span className="dropbtn">User</span>
-                <div className="dropdown-content">
-                  <Link to="/createAttendant">Create Attendant</Link>
-                </div>
-              </div>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/createAttendant">Create Attendant</Link>
             </li>
             <li>
               <img src={img2} alt="adminlogo" id="adminlogo" />
-            </li>
-            <li>
-              <Link
-                to="/"
-                onClick={() => {
-                  signUserOut();
-                }}
-              >
-                Logout
-              </Link>
             </li>
           </ul>
           <div className="burger">
@@ -82,7 +65,7 @@ class AdminComponent extends React.Component {
                       modified_date,
                     } = product;
                     return (
-                      <tr key={id}>
+                      <tr key={productname}>
                         <td>{id}</td>
                         <td>{productname}</td>
                         <td>{quantity}</td>
@@ -92,6 +75,7 @@ class AdminComponent extends React.Component {
                         <td>{modified_date}</td>
                         <td>
                           <button
+                            id="tes"
                             className="bt3"
                             onClick={() => this.props.deleteProduct(id)}
                           >

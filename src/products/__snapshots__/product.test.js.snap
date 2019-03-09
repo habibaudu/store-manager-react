@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PRODUCT TEST SUITE Product Component should render the PRODUCT Page 1`] = `
+<div>
+  <SlideShowComponent />
+  <div
+    className="mobile_header"
+  >
+    <img
+      src={Object {}}
+    />
+  </div>
+  <section
+    id="title"
+  >
+    Search for Product
+    <form
+      className="byid"
+      id="search"
+      onSubmit={[Function]}
+    >
+      <input
+        id="filter2"
+        name="search"
+        placeholder="Enter the exact name product  eg Men Loafers"
+        type="text"
+      />
+      <button
+        type="submit"
+      >
+        search 
+      </button>
+    </form>
+  </section>
+   
+  <section
+    id="title"
+  >
+    <Link
+      replace={false}
+      to="/cart"
+    >
+      view cart
+    </Link>
+  </section>
+  <div
+    className="article clearfix"
+    id="allproduct"
+  >
+    <h3>
+      loading product please wait...
+    </h3>
+  </div>
+</div>
+`;
+
+exports[`PRODUCT TEST SUITE Product Component should render the product container 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;

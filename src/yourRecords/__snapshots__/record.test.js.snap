@@ -1,0 +1,169 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SALES ATTENDANT RECORD TEST SUITE Record Component should render the Record container 1`] = `
+<ContextConsumer>
+  <Component />
+</ContextConsumer>
+`;
+
+exports[`SALES ATTENDANT RECORD TEST SUITE Record Component should render the record Page 1`] = `
+<div>
+  <nav>
+    <div
+      className="logo"
+    >
+      <h4>
+        Store Manager
+      </h4>
+    </div>
+    <ul
+      className="nav-links"
+    >
+      <li>
+         
+        <Link
+          replace={false}
+          to="/"
+        >
+          Home
+        </Link>
+      </li>
+      <li>
+         
+        <Link
+          replace={false}
+          to="/products"
+        >
+          products
+        </Link>
+      </li>
+      <li>
+         
+        <Link
+          replace={false}
+          to="/records"
+        >
+          Records
+        </Link>
+      </li>
+    </ul>
+    <div
+      className="burger"
+    >
+      <div
+        className="line1"
+      />
+      <div
+        className="line2"
+      />
+      <div
+        className="line3"
+      />
+    </div>
+  </nav>
+  <div
+    className="addbox"
+  >
+    <div
+      className="log_head"
+    >
+      Your Records
+    </div>
+    <div>
+      <table
+        id="myrecords"
+      >
+        <thead>
+          <tr>
+            <th>
+              salesID
+            </th>
+            <th>
+              Sold By
+            </th>
+            <th>
+              Product Name
+            </th>
+            <th>
+              Price Each
+            </th>
+            <th>
+              Quantity Sold
+            </th>
+            <th>
+              Price Sold
+            </th>
+            <th>
+              Total Amount
+            </th>
+            <th>
+              Date Sold
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            key="shoe"
+          >
+            <td>
+              2
+            </td>
+            <td>
+              3
+            </td>
+            <td>
+              shoe
+            </td>
+            <td>
+              2345
+            </td>
+            <td>
+              34
+            </td>
+            <td>
+              $
+            </td>
+            <td>
+              $
+            </td>
+            <td />
+          </tr>
+          <tr
+            key="shoe"
+          >
+            <td>
+              22
+            </td>
+            <td>
+              4
+            </td>
+            <td>
+              shoe
+            </td>
+            <td>
+              2000
+            </td>
+            <td>
+              34
+            </td>
+            <td>
+              $
+            </td>
+            <td>
+              $
+            </td>
+            <td />
+          </tr>
+        </tbody>
+      </table>
+      <div
+        className="form_footer"
+      >
+        <p>
+          Store Manager copyright &copy 2018 
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;

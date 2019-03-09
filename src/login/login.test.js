@@ -99,17 +99,6 @@ describe('Login Action', () => {
 });
 
 describe('Login Container', () => {
-  // it('should show initial state', () => {
-  //   const initialState = {
-  //     login: {
-  //       loginState: '',
-  //       errorMessage: '',
-  //     },
-  //   };
-  //   expect(mapStateToProps(initialState).loginState).toEqual('');
-  //   expect(mapStateToProps(initialState).errorMessage).toEqual('');
-  // });
-
   it('should dispatch action', () => {
     const dispatch = jest.fn();
     mapDispatchToProps(dispatch).loginUser();
@@ -159,7 +148,7 @@ describe('Connected Login Component Dispatches Login Success', () => {
   let wrapper;
   beforeEach(() => {
     const response = {};
-    axios.post.mockResolvedValue(response);
+    axios.post.mockImplementation(() => Promise.resolve(response));
     wrapper = mount(
       <Provider store={store}>
         <MemoryRouter>
@@ -177,55 +166,28 @@ describe('Connected Login Component Dispatches Login Success', () => {
       },
     });
   });
-
-  // it('it should render the connected component', () => {
-  //   expect(wrapper.find(Login).length).toEqual(1);
-  // });
-  // it('it should dispatch login action', () => {
-  //   const storeActions = store.getActions();
-  //   expect(storeActions[0].type).toEqual('SET_LOGIN_STATE');
-  // });
 });
 
-describe('Connected Login Component Dispatches Login Error', () => {
+describe('it should  Dispatches Login success', () => {
   const initialState = {
     login: {
-      loginState: '',
+      loginState: constants.LOGIN_SUCCESS,
       errorMessage: '',
     },
   };
   const mockStore = configureStore([thunk]);
-  const store = mockStore(initialState);
+  const store = mockStore({});
   let wrapper;
-  beforeEach(() => {
-    const response = {
-      response: { data: { error: 'invalid credentials' } },
-    };
-    axios.post.mockImplementation(() => Promise.reject(response));
-    wrapper = mount(
-      <Provider store={store}>
-        <MemoryRouter>
-          <LoginContainer />
-        </MemoryRouter>
-      </Provider>,
-    );
-    wrapper.find('form').simulate('submit', {
-      preventDefault: () => {},
-      target: {
-        elements: {
-          email: { value: 'bugsburney' },
-          password: { value: 'bugsbugs' },
-        },
-      },
-    });
+  const target = {
+    elements: {
+      email: { value: 'spicy' },
+      password: { value: 'dicy' },
+    },
+  };
+  const response = { message: 'Login sucessful' };
+  axios.post.mockImplementation(() => Promise.resolve(response));
+
+  store.dispatch(doLogin(target)).then(() => {
+    store.dispatch(setLoginState(initialState));
   });
-
-  const dispatch = jest.fn();
-  // mapDispatchToProps(dispatch).doLogin('bugsburney', 'bugsbugs');
-
-  // it('it should dispatch login error action', () => {
-  //   const storeActions = store.getActions();
-  //   expect(storeActions[0].type).toEqual('SET_LOGIN_STATE');
-  //   expect(storeActions[1].type).toEqual('SET_LOGIN_ERROR');
-  // });
 });
