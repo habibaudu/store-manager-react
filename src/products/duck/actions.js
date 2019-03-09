@@ -12,6 +12,18 @@ const getAProducts = (product) => ({
 
 });
 
+const addToCart = (item) => ({
+  type:types.ADD_TO_CART,
+  item
+
+});
+
+const removeFromCart = (item) => ({
+  type:types.REMOVE_FROM_CART,
+  item
+
+});
 
 
-export default { setAllProducts, getAProducts };
+
+export default { setAllProducts, getAProducts, addToCart, removeFromCart };
