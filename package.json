@@ -10,7 +10,8 @@
     "start": "npm run build && npm run serve",
     "test": "jest --coverage --coverageReporters=text-lcov | coveralls",
     "test:dev": "jest --coverage",
-    "update:snapshot": "jest --updateSnapshot"
+    "update:snapshot": "jest --updateSnapshot",
+    "heroku-postbuild": "npm run build"
   },
   "keywords": [],
   "author": "",
