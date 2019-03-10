@@ -11,7 +11,10 @@ const doLogin = (email, password) => dispatch => {
   dispatch(setLoginState(constants.LOGGING_IN));
   dispatch(setLoginError(''));
   return axios
-    .post(url, { email, password })
+    .post('https://store-manager2.herokuapp.com/api/v1/auth/login', {
+      email,
+      password,
+    })
     .then(({ data }) => {
       localStorage.setItem('token', data.token);
       dispatch(setLoginState(constants.LOGIN_SUCCESS, data));
