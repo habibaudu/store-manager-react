@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login Component should redirect page if login is successful 1`] = `
+<Fragment>
+  <div>
+    <nav>
+      <div
+        className="logo"
+      >
+        <h4>
+          Store Manager
+        </h4>
+      </div>
+      <ul
+        className="nav-links"
+      >
+        <li>
+           
+          <Link
+            replace={false}
+            to="/"
+          >
+            Home
+          </Link>
+        </li>
+        <li
+          className="current"
+        >
+           
+          <Link
+            replace={false}
+            to="/login"
+          >
+            Login
+          </Link>
+        </li>
+      </ul>
+      <div
+        className="burger"
+      >
+        <div
+          className="line1"
+        />
+        <div
+          className="line2"
+        />
+        <div
+          className="line3"
+        />
+      </div>
+    </nav>
+    <div
+      className="formbox"
+    >
+      <div>
+        Login was Successful. 
+        <Redirect
+          push={false}
+          to="/products"
+        />
+         
+      </div>
+      <div
+        className="log_head"
+      >
+        <h1>
+          Login Here
+        </h1>
+      </div>
+      <form
+        onSubmit={[Function]}
+      >
+        <p>
+          Email
+        </p>
+        <input
+          id="email"
+          name="email"
+          placeholder="Enter  Email"
+          type="email"
+        />
+        <p>
+          Password
+        </p>
+        <input
+          id="password"
+          name="password"
+          placeholder="Enter password"
+          type="password"
+        />
+        <input
+          name=""
+          type="submit"
+          value="submit"
+        />
+      </form>
+      <div
+        className="form_footer"
+      >
+        <p>
+          Store Manager copyright &copy 2018 
+        </p>
+      </div>
+    </div>
+  </div>
+</Fragment>
+`;

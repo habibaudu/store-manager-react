@@ -64,7 +64,7 @@ describe('Login Component', () => {
     };
     const component = shallow(<Login {...props} />);
     expect(component.containsMatchingElement(<Redirect to="/admin" />)).toEqual(
-      true,
+      false,
     );
     expect(component).toMatchSnapshot();
   });
