@@ -48,8 +48,8 @@ const CreateAttendantComponent = ({
             'Creating Attendant please wait....'}
           {signupState === constants.SIGNUP_SUCCESS &&
             'Attendant created sucessfully'}
-          {errorMessage === constants.SIGNUP_ERROR &&
-            'An error occured while creating attendant'}
+          {signupState === constants.SIGNUP_ERROR &&
+            'Error occured while creating an attendant'}
           <div className="log_head">
             <h1>Create User</h1>
           </div>
@@ -104,8 +104,8 @@ const CreateAttendantComponent = ({
 
 const mapStateToProps = state => {
   return {
-    signupState: state.adminReducer,
-    errormessage: state.adminReducer,
+    signupState: state.adminReducer.signupState,
+    errorMessage: state.adminReducer.errorMessage,
   };
 };
 
