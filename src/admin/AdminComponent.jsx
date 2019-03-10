@@ -38,7 +38,7 @@ class AdminComponent extends React.Component {
               +Add Product
             </button>
           </Link>
-          <div>
+          <div style={{ overflowX: 'auto' }}>
             {this.props.payload ? (
               <table style={{ overflowX: 'auto' }}>
                 <thead>

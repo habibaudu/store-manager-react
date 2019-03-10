@@ -36,7 +36,7 @@ class RecordComponent extends React.Component {
 
         <div className="addbox">
           <div className="log_head">Your Records</div>
-          <div>
+          <div style={{ overflowX: 'auto' }}>
             {this.props.record.records ? (
               <table id="myrecords">
                 <thead>
