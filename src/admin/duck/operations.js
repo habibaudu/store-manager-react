@@ -136,7 +136,7 @@ export const createAttendant = (
   dispatch(setSignupError(''));
   return axios
     .post(
-      `https://store-manager2.herokuapp.com/api/v1/auth/signup`,
+      'https://store-manager2.herokuapp.com/api/v1/auth/signup',
       {
         email,
         password,
