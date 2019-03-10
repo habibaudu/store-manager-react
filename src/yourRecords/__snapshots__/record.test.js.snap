@@ -69,7 +69,13 @@ exports[`SALES ATTENDANT RECORD TEST SUITE Record Component should render the re
     >
       Your Records
     </div>
-    <div>
+    <div
+      style={
+        Object {
+          "overflowX": "auto",
+        }
+      }
+    >
       <table
         id="myrecords"
       >

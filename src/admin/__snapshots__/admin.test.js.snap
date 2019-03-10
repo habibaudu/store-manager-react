@@ -65,7 +65,13 @@ exports[`ADMIN TEST SUITE Admin Component should render the Admin Page 1`] = `
         +Add Product
       </button>
     </Link>
-    <div>
+    <div
+      style={
+        Object {
+          "overflowX": "auto",
+        }
+      }
+    >
       <h3>
         loading product please wait...
       </h3>
