@@ -10,19 +10,11 @@ export const LoginComponent = ({ loginUser, loginState }) => {
     const password = e.target.elements.password.value.trim();
     loginUser(email, password);
   };
-  // const token =
-  //   localStorage.hasOwnProperty('token')
-  //     ? localStorage.getItem('token')
-  //     : '';
-  let token, role, page;
-  if (localStorage.hasOwnProperty('token')) {
-    token = localStorage.getItem('token');
-    role = jwtDecode(token).userRole;
-    page = role === 'ADMIN' ? `/admin` : `/products`;
-  } else {
-    token = '';
-  }
-
+  const token = localStorage.hasOwnProperty('token')
+    ? localStorage.getItem('token')
+    : null;
+  const role = token != null ? jwtDecode(token).userRole : '';
+  const page = role === 'ADMIN' ? `/admin` : `/products`;
   return (
     <Fragment>
       <div>
