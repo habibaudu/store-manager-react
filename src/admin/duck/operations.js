@@ -24,7 +24,7 @@ const fetchAllProducts = () => dispatch => {
     },
   };
   return axios
-    .get(url, defaultOptions)
+    .get('https://store-manager2.herokuapp.com/api/v1/products', defaultOptions)
     .then(({ data }) => {
       const img = data.imgArr;
       const data2 = data.rows;
@@ -83,7 +83,7 @@ export const addProduct = (
 
   return axios
     .post(
-      url,
+      'https://store-manager2.herokuapp.com/api/v1/products',
       { productname, minimum, description, images, price, quantity },
       defaultOptions,
     )
@@ -100,7 +100,7 @@ export const addProduct = (
 };
 
 export const deleteProduct = id => dispatch => {
-  const deleteUrl = `${API_URL}products/${id}`;
+  const deleteUrl = `https://store-manager2.herokuapp.com/api/v1/products/${id}`;
   const token = localStorage.getItem('token');
   const defaultOptions = {
     headers: {
@@ -136,7 +136,7 @@ export const createAttendant = (
   dispatch(setSignupError(''));
   return axios
     .post(
-      `${API_URL}auth/signup`,
+      `https://store-manager2.herokuapp.com/api/v1/auth/signup`,
       {
         email,
         password,
