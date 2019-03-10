@@ -154,6 +154,7 @@ export const createAttendant = (
       toast.error(response, {
         hideProgressBar: true,
       });
+      console.log(response);
     });
 };
 
