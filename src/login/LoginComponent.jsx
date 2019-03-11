@@ -10,10 +10,10 @@ export const LoginComponent = ({ loginUser, loginState }) => {
     const password = e.target.elements.password.value.trim();
     loginUser(email, password);
   };
-  const token = localStorage.getItem('token')
+  const token = localStorage.hasOwnProperty('token')
     ? localStorage.getItem('token')
-    : '';
-  const role = jwtDecode(token).userRole;
+    : null;
+  const role = token != null ? jwtDecode(token).userRole : '';
   const page = role === 'ADMIN' ? `/admin` : `/products`;
   return (
     <Fragment>

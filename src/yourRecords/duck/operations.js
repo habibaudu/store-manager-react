@@ -4,7 +4,7 @@ import actions from './actions';
 import constants from './constants';
 
 const API_URL = process.env.API_URL;
-const {  setAllRecords } = actions;
+const { setAllRecords } = actions;
 const url = `${API_URL}sale`;
 
 const fetchMyRecords = () => dispatch => {
@@ -15,9 +15,9 @@ const fetchMyRecords = () => dispatch => {
     },
   };
   return axios
-    .get(url,defaultOptions)
+    .get('https://store-manager2.herokuapp.com/api/v1/sale', defaultOptions)
     .then(({ data }) => {
-      dispatch(setAllRecords(data))
+      dispatch(setAllRecords(data));
     })
     .catch(({ response }) => {
       toast.error(response, {
@@ -26,4 +26,4 @@ const fetchMyRecords = () => dispatch => {
     });
 };
 
-export {fetchMyRecords};
+export { fetchMyRecords };

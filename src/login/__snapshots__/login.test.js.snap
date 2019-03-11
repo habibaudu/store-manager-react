@@ -56,7 +56,7 @@ exports[`Login Component should redirect page if login is successful 1`] = `
         Login was Successful. 
         <Redirect
           push={false}
-          to="/admin"
+          to="/products"
         />
          
       </div>
