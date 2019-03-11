@@ -14,31 +14,6 @@ class SlideShowComponent extends React.Component {
   render() {
     return (
       <div>
-        <nav>
-          <div className="logo">
-            <h4>Store Manager</h4>
-          </div>
-          <ul className="nav-links">
-            <li>
-              {' '}
-              <Link to="/">Home</Link>
-            </li>
-
-            <li className="current">
-              {' '}
-              <Link to="/products">Products</Link>
-            </li>
-            <li>
-              {' '}
-              <Link to="records">Records</Link>{' '}
-            </li>
-          </ul>
-          <div className="burger">
-            <div className="line1" />
-            <div className="line2" />
-            <div className="line3" />
-          </div>
-        </nav>
         <header>
           <input type="radio" id="value1" name="image" readOnly />
           <input type="radio" id="value2" name="image" readOnly />

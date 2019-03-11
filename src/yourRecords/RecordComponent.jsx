@@ -9,31 +9,6 @@ class RecordComponent extends React.Component {
   render() {
     return (
       <div>
-        <nav>
-          <div className="logo">
-            <h4>Store Manager</h4>
-          </div>
-          <ul className="nav-links">
-            <li>
-              {' '}
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              {' '}
-              <Link to="/products">products</Link>
-            </li>
-            <li>
-              {' '}
-              <Link to="/records">Records</Link>
-            </li>
-          </ul>
-          <div className="burger">
-            <div className="line1" />
-            <div className="line2" />
-            <div className="line3" />
-          </div>
-        </nav>
-
         <div className="addbox">
           <div className="log_head">Your Records</div>
           <div style={{ overflowX: 'auto' }}>
