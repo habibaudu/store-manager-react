@@ -8,11 +8,13 @@ import { Record } from '../yourRecords';
 import { Admin } from '../admin';
 import { AddProduct } from '../admin';
 import { CreateAttendant } from '../admin';
+import NavbarComponent from '../Navbar/NavbarComponent';
 import '../styles/index.css';
 
 const App = () => (
   <Router>
     <Fragment>
+      <NavbarComponent />
       <Switch>
         <Route path="/" component={Home} exact />
         <Route path="/login" component={Login} exact />

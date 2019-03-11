@@ -3,52 +3,6 @@
 exports[`ADD PRODUCT TEST SUITE Admin Component should render the AddProduct Component 1`] = `
 <Fragment>
   <div>
-    <nav>
-      <div
-        className="logo"
-      >
-        <h4>
-          Store Manager
-        </h4>
-      </div>
-      <ul
-        className="nav-links"
-      >
-        <li>
-           
-          <Link
-            replace={false}
-            to="/"
-          >
-            Home
-          </Link>
-        </li>
-        <li
-          className="current"
-        >
-           
-          <Link
-            replace={false}
-            to="/admin"
-          >
-            Admin
-          </Link>
-        </li>
-      </ul>
-      <div
-        className="burger"
-      >
-        <div
-          className="line1"
-        />
-        <div
-          className="line2"
-        />
-        <div
-          className="line3"
-        />
-      </div>
-    </nav>
     <div
       className="addbox"
     >

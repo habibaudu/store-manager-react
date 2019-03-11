@@ -25,27 +25,6 @@ class AddProductComponent extends React.Component {
     return (
       <Fragment>
         <div>
-          <nav>
-            <div className="logo">
-              <h4>Store Manager</h4>
-            </div>
-            <ul className="nav-links">
-              <li>
-                {' '}
-                <Link to="/">Home</Link>
-              </li>
-              <li className="current">
-                {' '}
-                <Link to="/admin">Admin</Link>
-              </li>
-            </ul>
-            <div className="burger">
-              <div className="line1" />
-              <div className="line2" />
-              <div className="line3" />
-            </div>
-          </nav>
-
           <div className="addbox">
             {status === constants.ADDING_PRODUCT && 'please wait ...'}
             {status === constants.PRODUCT_SUCESSFULLY_ADDED && (

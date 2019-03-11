@@ -2,6 +2,7 @@
 
 exports[`App should render App 1`] = `
 <BrowserRouter>
+  <Connect(NavbarComponent) />
   <Switch>
     <Route
       component={[Function]}

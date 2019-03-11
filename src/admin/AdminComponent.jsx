@@ -10,29 +10,6 @@ class AdminComponent extends React.Component {
   render() {
     return (
       <div>
-        <nav>
-          <div className="logo">
-            <h4>Store Manager</h4>
-          </div>
-
-          <ul className="nav-links">
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/createAttendant">Create Attendant</Link>
-            </li>
-            <li>
-              <img src={img2} alt="adminlogo" id="adminlogo" />
-            </li>
-          </ul>
-          <div className="burger">
-            <div className="line1" />
-            <div className="line2" />
-            <div className="line3" />
-          </div>
-        </nav>
-
         <div className="adminbox">
           <Link to="/addproduct">
             <button className="addproduct" id="butt">

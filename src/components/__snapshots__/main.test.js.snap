@@ -6,11 +6,6 @@ exports[`HomePage Component should render the Landing Page 1`] = `
     className="container"
   >
     <div
-      id="header"
-    >
-      Excl shoes
-    </div>
-    <div
       className="divide clearfix"
     >
       <section
