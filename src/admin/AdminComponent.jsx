@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import img2 from '../img/download.jpeg';
+
 class AdminComponent extends React.Component {
   componentDidMount() {
     this.props.fetchAllProducts();
