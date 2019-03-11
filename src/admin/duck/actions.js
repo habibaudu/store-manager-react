@@ -20,9 +20,9 @@ const addProductError = errormessage => ({
   errormessage,
 });
 
-const setDeleteProduct = deleteProduct => ({
+const setDeleteProduct = id => ({
   type: types.DELETE_PRODUCT,
-  deleteProduct,
+  id,
 });
 
 const setSignupState = signupState => ({

@@ -111,7 +111,8 @@ export const deleteProduct = id => dispatch => {
   return axios
     .delete(deleteUrl, defaultOptions)
     .then(({ data }) => {
-      dispatch(setDeleteProduct(data));
+      dispatch(setDeleteProduct(id));
+      // TODO - display toast
     })
     .catch(({ response }) => {
       toast.error(response, {
