@@ -19,8 +19,9 @@ const adminReducer = (state = {}, action) => {
       return { ...state, errormessage };
     }
     case types.DELETE_PRODUCT: {
-      const { deleteProduct } = action;
-      return { ...state, deleteProduct };
+      const { id } = action;
+      const newPayload = state.payload.filter(product => product.id !== id);
+      return { ...state, payload: newPayload };
     }
     case types.SET_SIGNUP_STATE: {
       const { signupState, data } = action;
