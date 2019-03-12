@@ -36,7 +36,7 @@ On your git bash run the following command
 
 - ADMIN DETAILS
 
-  - `email` : audhabib1990@gmail.com
+  - `email` : auduhabib1990@gmail.com
   - `password`: hba821
 
 - ATTENDANT DETAILS
