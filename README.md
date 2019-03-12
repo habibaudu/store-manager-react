@@ -34,15 +34,14 @@ On your git bash run the following command
 
 ## LOGIN DETAILS
 
-## ADMIN DETAILS
+- ADMIN DETAILS
 
-     - `email` : audhabib1990@gmail.com
-     - `password`: hba821
+  - `email` : audhabib1990@gmail.com
+  - `password`: hba821
 
-    ## ATTENDANT DETAILS
-     - `email` :tokenuser@gmail.com
-     - `password`: hba821
-
+- ATTENDANT DETAILS
+  - `email` :tokenuser@gmail.com
+  - `password`: hba821
 
 ## license
 
